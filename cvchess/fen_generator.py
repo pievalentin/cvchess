@@ -41,5 +41,6 @@ class FENGenerator:
                 from chess_piece_detector import ChessPieceDetector
                 piece = ChessPieceDetector.connect_square_to_detection(detections, square, boxes)
                 row.append(piece)
-            board_state.append(row)
+            corrected_FEN = [i.replace('empty', '1') for i in row]
+            board_state.append(corrected_FEN)
         return board_state
